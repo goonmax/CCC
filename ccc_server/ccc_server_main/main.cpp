@@ -1,8 +1,9 @@
 #include "main.h"
-namespace po = boost::program_options;
 
-size_t opt;
 
+
+
+//--------------------------------------------------------------------------------
 int main(int argc, char** argv) {
 po::options_description desc("Allowed options");
 desc.add_options()
@@ -23,4 +24,15 @@ if (vm.count("compression")) {
 } else {
     std::cout << "Compression level was not set.\n";
 }
+
+	Cccservermain server;
+    try
+	{
+ 		server.run();
+	}
+	catch(const std::exeception& exeception)
+	{
+ 		std::cout << "Exception " << std::exeception.what() << std::endl;
+	}
+	return 0;
 }
