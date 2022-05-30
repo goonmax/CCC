@@ -1,8 +1,6 @@
 #include "main.h"
 
 
-
-
 //--------------------------------------------------------------------------------
 int main(int argc, char** argv) {
 po::options_description desc("Allowed options");
@@ -28,7 +26,7 @@ if (vm.count("compression")) {
 	Cccservermain server;
     try
 	{
- 		server.run();
+ 		server.start();
 	}
 	catch(const std::exeception& exeception)
 	{
