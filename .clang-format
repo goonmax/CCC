@@ -1,7 +1,7 @@
 BasedOnStyle: Microsoft
-ColumLimit: '80'
-IndentWitdth : '4'
-SpaceBeforRangeBasedForLoopColon: 'true'
+ColumnLimit: '80'
+IndentWidth : '4'
+SpaceBeforeRangeBasedForLoopColon: 'true'
 SpaceInEmptyParentheses: 'false'
 UseTab: Never
 PointerAlignment: Left
