@@ -23,7 +23,14 @@ class ServerEngine
 {
   public:
     typedef shared_ptr<ServerEngine> Server_pointer;
-
+    /**
+     * @brief Constructor for the ServerEngine object
+     * @param call to create instance of class
+     */
+    ServerSate CurrentState;
+    ServerEngine(CurrentState)
+    {
+    }
     /**
      * @brief Creates a server object
      * @param call to start a server object
@@ -32,8 +39,8 @@ class ServerEngine
     {
     }
     /**
-     * @brief Destorys the server object
-     * @param lang the language to greet in
+     * @brief destorys the server object
+     * @param call to destory the object
      */
     void stop()
     {
