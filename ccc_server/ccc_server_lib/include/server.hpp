@@ -1,11 +1,14 @@
+#include <boost/asio.hpp>
 #include <boost/program_options.hpp>
-#pragma once
+#include <iostream>
 
-namespace CCCserver
+#pragma once
+using boost::asio::ip::tcp;
+namespace ServerEngine
 {
 
-/**  Language codes to be used with the Greeter class */
-enum class ServerSate
+/** States in which the server engine can be in **/
+enum class ServerState
 {
     listening,
     crafting,
@@ -14,11 +17,13 @@ enum class ServerSate
 };
 
 /**
- * @brief A class for saying hello in multiple languages
+ * @brief A class for creating the server engine
  */
-class CCCserver
+class ServerEngine
 {
   public:
+    typedef shared_ptr<ServerEngine> Server_pointer;
+
     /**
      * @brief Creates a server object
      * @param call to start a server object
@@ -35,7 +40,7 @@ class CCCserver
     }
 };
 
-} // namespace CCCserver
+} // namespace ServerEngine
 
 private:
 }
