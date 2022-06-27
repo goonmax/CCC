@@ -22,15 +22,15 @@ enum class ServerState
 class ServerEngine
 {
   public:
-    typedef shared_ptr<ServerEngine> Server_pointer;
+    typedef std::unique_ptr<ServerEngine> Server_pointer;
     /**
      * @brief Constructor for the ServerEngine object
      * @param call to create instance of class
      */
-    ServerSate CurrentState;
-    ServerEngine(CurrentState)
+    /*   ServerState CurrentState;
+     ServerEngine(CurrentState)
     {
-    }
+    }*/
     /**
      * @brief Creates a server object
      * @param call to start a server object
@@ -45,10 +45,7 @@ class ServerEngine
     void stop()
     {
     }
-};
 
+  private:
+}; // end of class
 } // namespace ServerEngine
-
-private:
-}
-;
