@@ -1,5 +1,5 @@
-#include "main.h"
-
+#include "main.hpp"
+#include "server.hpp"
 //--------------------------------------------------------------------------------
 int main(int argc, char** argv)
 {
@@ -19,14 +19,15 @@ int main(int argc, char** argv)
     }
 
     //--------------------------------------------------------------------------------
-    Cccservermain server;
+    Server::ServerEngine server;
     try
     {
         server.start();
     }
-    catch (const std::exeception& exeception)
+    catch (const std::exception& exception)
     {
-        std::cout << "Exception " << std::exeception.what() << std::endl;
+        std::cout << "Exception in main when starting the server"
+                  << exception.what() << std::endl;
     }
     return 0;
 }

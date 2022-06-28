@@ -4,7 +4,7 @@
 
 #pragma once
 using boost::asio::ip::tcp;
-namespace ServerEngine
+namespace Server
 {
 
 /** States in which the server engine can be in **/
@@ -22,7 +22,7 @@ enum class ServerState
 class ServerEngine
 {
   public:
-    typedef std::unique_ptr<ServerEngine> Server_pointer;
+    // using Server_pointer = std::unique_ptr<ServerEngine>;
     /**
      * @brief Constructor for the ServerEngine object
      * @param call to create instance of class
@@ -48,4 +48,4 @@ class ServerEngine
 
   private:
 }; // end of class
-} // namespace ServerEngine
+} // namespace Server
