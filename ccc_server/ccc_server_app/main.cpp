@@ -1,9 +1,9 @@
 #include "main.hpp"
 #include "server.hpp"
-//--------------------------------------------------------------------------------
 int main(int argc, char** argv)
 {
     // maybe move this somewhere else
+    /*
     po::options_description desc("Allowed options");
     desc.add_options()("help,h", "produce help message")(
         "Run with --idle, --crafting or --listening", po::value<int>(),
@@ -16,13 +16,13 @@ int main(int argc, char** argv)
     {
         std::cout << desc << "\n";
         return 1;
-    }
+    }*/
 
     //--------------------------------------------------------------------------------
     Server::ServerEngine server;
     try
     {
-        server.start();
+        // server.start();
     }
     catch (const std::exception& exception)
     {
