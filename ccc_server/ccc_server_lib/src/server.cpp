@@ -10,7 +10,6 @@ void start()
     {
         std::unique_ptr<ServerEngine> server_state_object =
             std::make_unique<ServerEngine>();
-        std::cout << "Hello, im working che" << std::endl;
     }
     catch (std::exception& e)
     {
