@@ -1,20 +1,11 @@
+#include "states.hpp"
 #include <boost/asio.hpp>
 #include <boost/program_options.hpp>
 #include <iostream>
-#include <map>
 #pragma once
 using boost::asio::ip::tcp;
 namespace Server
 {
-
-/** States in which the server engine can be in **/
-enum ServerState
-{
-    listening,
-    crafting,
-    idle,
-    power
-};
 /**
  * @brief A class for creating the server engine
  */
@@ -27,6 +18,7 @@ class ServerEngine
      */
     ServerState CurrentState() const;
     void CurrentState(ServerState state);
+
     /**
      * @brief Constructor for the ServerEngine object
      * @param initialise the object
@@ -34,7 +26,6 @@ class ServerEngine
     ServerEngine()
     {
         std::cout << "serverengine object created" << std::endl;
-        // with this object make it initialise with the state of the engine
     }
     ~ServerEngine()
     {
@@ -56,5 +47,6 @@ class ServerEngine
     }
 
   private:
+    ServerState m_state = INITIALIZE;
 }; // end of class
 } // namespace Server

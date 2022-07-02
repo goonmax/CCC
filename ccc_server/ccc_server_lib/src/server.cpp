@@ -1,5 +1,4 @@
 #include "server.hpp"
-#include <iostream>
 
 namespace Server
 {
@@ -17,4 +16,13 @@ void start()
     }
 }
 //--------------------------------------------------------------------------------
+ServerState CurrentState()
+{
+    return m_state;
+}
+//--------------------------------------------------------------------------------
+void CurrentState(ServerState state)
+{
+    m_state = state;
+}
 } // namespace Server
