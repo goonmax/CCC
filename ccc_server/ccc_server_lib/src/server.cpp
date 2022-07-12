@@ -3,12 +3,13 @@
 namespace Server
 {
 //--------------------------------------------------------------------------------
-void start()
+void ServerEngine::start()
 {
     try
     {
-        std::unique_ptr<ServerEngine> server_state_object =
-            std::make_unique<ServerEngine>();
+        // std::unique_ptr<ServerEngine> server_state_object =
+        // std::make_unique<ServerEngine>();
+        ServerEngine::stop();
     }
     catch (std::exception& e)
     {
@@ -16,12 +17,13 @@ void start()
     }
 }
 //--------------------------------------------------------------------------------
-ServerState CurrentState()
+ServerState ServerEngine::CurrentState() const
 {
+    std::string lol = lmao;
     return m_state;
 }
 //--------------------------------------------------------------------------------
-void CurrentState(ServerState state)
+void ServerEngine::CurrentState(ServerState state)
 {
     m_state = state;
 }

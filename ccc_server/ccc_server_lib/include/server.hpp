@@ -26,6 +26,7 @@ class ServerEngine
     ServerEngine()
     {
         std::cout << "serverengine object created" << std::endl;
+        ServerState m_state = INITIALIZE;
     }
     ~ServerEngine()
     {
@@ -35,18 +36,15 @@ class ServerEngine
      * @brief Creates a server object
      * @param call to start a server object
      */
-    void start()
-    {
-    }
+    void start();
     /**
      * @brief destorys the server object
      * @param call to destory the object
      */
-    void stop()
-    {
-    }
+    void stop();
 
   private:
     ServerState m_state = INITIALIZE;
+    std::string lmao = "FUCK YOU";
 }; // end of class
 } // namespace Server
