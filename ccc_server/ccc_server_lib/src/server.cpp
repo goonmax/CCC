@@ -7,9 +7,8 @@ void ServerEngine::start()
 {
     try
     {
-        // std::unique_ptr<ServerEngine> server_state_object =
-        // std::make_unique<ServerEngine>();
-        ServerEngine::stop();
+        std::unique_ptr<ServerEngine> server_instance_object =
+            std::make_unique<ServerEngine>();
     }
     catch (std::exception& e)
     {
@@ -19,7 +18,6 @@ void ServerEngine::start()
 //--------------------------------------------------------------------------------
 ServerState ServerEngine::CurrentState() const
 {
-    std::string lol = lmao;
     return m_state;
 }
 //--------------------------------------------------------------------------------

@@ -11,6 +11,8 @@ find_package(OpenSSL REQUIRED)
 set(SOURCE_FILES
 	include/main.hpp
 	include/server.hpp
+	include/monitoring.hpp
+	src/monitoring.cpp
 	src/server.cpp
 )
 add_library(CCC_server_lib)

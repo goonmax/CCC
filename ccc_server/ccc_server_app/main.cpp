@@ -1,5 +1,4 @@
 #include "main.hpp"
-#include "server.hpp"
 int main(int argc, char** argv)
 {
     // maybe move this somewhere else
@@ -20,9 +19,11 @@ int main(int argc, char** argv)
 
     //--------------------------------------------------------------------------------
     Server::ServerEngine server;
+    Monitor::NetworkEnumeration collector;
     try
     {
-        // server.start();
+        server.start();
+        collector.CollectMacaddresses();
     }
     catch (const std::exception& exception)
     {

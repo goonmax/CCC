@@ -9,4 +9,4 @@ enum ServerState
     IDLE,
     INITIALIZE
 };
-#endif /* states_h */
+#endif /* states_hpp*/

@@ -45,6 +45,5 @@ class ServerEngine
 
   private:
     ServerState m_state = INITIALIZE;
-    std::string lmao = "FUCK YOU";
 }; // end of class
 } // namespace Server
