@@ -1,2 +1,0 @@
-/usr/bin/ar qc libCCC_server_lib.a CMakeFiles/CCC_server_lib.dir/src/server.cpp.o
-/usr/bin/ranlib libCCC_server_lib.a
