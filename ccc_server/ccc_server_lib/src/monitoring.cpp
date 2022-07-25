@@ -9,17 +9,9 @@ void NetworkEnumeration::CollectMacaddresses()
         boost::process::system(collect_addresses, boost::process::std_out > out,
                                boost::process::std_err > err,
                                boost::process::std_in < stdin);
-        std::string line;
-        std::cout << "stdout capture:\n";
         while (std::getline(out, line))
         {
-            std::cout << line << '\n';
-        }
-
-        std::cout << "\nstderr capture:\n";
-        while (std::getline(err, line))
-        {
-            std::cout << line << '\n';
+            collect_addresses_output.push_back(line);
         }
     }
     catch (std::exception& e)

@@ -34,5 +34,7 @@ class NetworkEnumeration
 
   private:
     const std::string collect_addresses = "/usr/bin/ip neighbour";
+    std::vector<std::string> collect_addresses_output;
+    std::string line;
 }; // end of class
 } // namespace Monitor
