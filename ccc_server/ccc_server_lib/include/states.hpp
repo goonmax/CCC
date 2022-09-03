@@ -6,7 +6,7 @@ enum ServerState
 {
     LISTENING,
     CRAFTING,
-    IDLE,
+    MONITORING,
     INITIALIZE
 };
 #endif /* states_hpp*/

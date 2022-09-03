@@ -1,4 +1,5 @@
 //#include <boost/asio.hpp>
+#include "menu.hpp"
 #include "monitoring.hpp"
 #include "server.hpp"
 #include <boost/program_options.hpp>

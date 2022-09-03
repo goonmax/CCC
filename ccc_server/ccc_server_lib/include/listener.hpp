@@ -20,7 +20,7 @@ class listener
     listener()
     {
         std::cout << "listener object created" << std::endl;
-        ServerState m_state = INITIALIZE;
+        ServerState m_state = LISTENING;
     }
     ~listener()
     {

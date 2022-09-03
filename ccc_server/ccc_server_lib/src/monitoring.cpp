@@ -30,16 +30,16 @@ void NetworkEnumeration::PortScan()
         boost::process::system(allports, boost::process::std_out > out,
                                boost::process::std_err > err,
                                boost::process::std_in < stdin);
-    }
-    while (std::getline(out, line))
-    {
-        nmap_output.push_back(line);
-    }
-}
-catch (std::exception& e)
-{
-    std::cerr << e.what() << std::endl;
-}
 
+        while (std::getline(out, line))
+        {
+            nmap_output.push_back(line);
+        }
+    }
+    catch (std::exception& e)
+    {
+        std::cerr << e.what() << std::endl;
+    }
+}
 } // namespace Monitor
 //--------------------------------------------------------------------------------
