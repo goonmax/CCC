@@ -12,6 +12,17 @@ void NetworkEnumeration::CollectMacaddresses()
         while (std::getline(out, line))
         {
             collect_addresses_output.push_back(line);
+
+            for (std::string index : collect_addresses_output)
+                BOOST_LOG_TRIVIAL(trace)
+                    << std::endl
+                    // << BOOST_CURRENT_FUNCTION << std::endl
+                    << "\nConnected devices on this subnet:"
+                    << "\n|----------------------------------"
+                       "-----------------------|\n"
+                    << " " + index
+                    << "\n|----------------------------------"
+                       "-----------------------|\n";
         }
     }
     catch (std::exception& e)

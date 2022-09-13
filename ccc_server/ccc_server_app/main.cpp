@@ -4,11 +4,9 @@ int main(int argc, char** argv)
     //--------------------------------------------------------------------------------
     Server::ServerEngine server;
     Monitor::NetworkEnumeration collector;
-    CLI::Menu menu;
     try
     {
         server.start();
-        collector.CollectMacaddresses();
     }
     catch (const std::exception& exception)
     {
@@ -17,9 +15,9 @@ int main(int argc, char** argv)
     }
     //--------------------------------------------------------------------------------
     po::options_description desc("Allowed options");
-    desc.add_options()("help,h", "produce help message")(
-        "Run with --monitoring, --crafting or --listening", po::value<int>(),
-        "Set the state of the framework in which you want it to be ran");
+    desc.add_options()("help,h", "Produce help message")("monitoring,m",
+                                                         "Start monitoring")(
+        "crafting,c", "Start crafting")("listening,l", "Start listening");
     po::variables_map vm;
     po::store(po::parse_command_line(argc, argv, desc), vm);
     po::notify(vm);
@@ -34,6 +32,7 @@ int main(int argc, char** argv)
     }
     if (vm.count("monitoring"))
     {
+        collector.CollectMacaddresses();
     }
     if (vm.count("crafting"))
     {
