@@ -1,0 +1,12 @@
+[Unit]
+Description=CCC Systemd Service
+After=network.target
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+Restart=always
+ExecStart=/usr/bin/CCC_server_app
+
+[Install]
+WantedBy=multi-user.target

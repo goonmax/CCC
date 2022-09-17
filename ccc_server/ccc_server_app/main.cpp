@@ -33,6 +33,7 @@ int main(int argc, char** argv)
     if (vm.count("monitoring"))
     {
         collector.CollectMacaddresses();
+        // collector.PortScan();
     }
     if (vm.count("crafting"))
     {

@@ -22,7 +22,10 @@ target_link_libraries(
 	Boost::thread
 	Boost::log
 	OpenSSL::SSL
+	Boost::program_options
 )
+FIND_PACKAGE( Boost  COMPONENTS program_options REQUIRED )
+
 target_include_directories(CCC_server_lib
 	PUBLIC ${PROJECT_SOURCE_DIR}/include ${PROJECT_SOURCE_DIR}/../include)
 
