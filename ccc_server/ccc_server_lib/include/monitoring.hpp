@@ -32,7 +32,7 @@ class NetworkEnumeration
      * @brief  does a port scan of an address that is given to the function
      * @param call to initiate a port scan with nmap or rustscan
      */
-    void PortScan();
+    void PortScan(std::string ipaddress);
     /**
      * @brief Gets the user input to make a decision
      * @param call to get user input to action
@@ -42,12 +42,14 @@ class NetworkEnumeration
   private:
     const std::string collect_addresses = "/usr/bin/ip neighbour";
     const std::string top1000ports =
-        "/usr/bin/nmap -sCV -Pn -oA  top1000ports > /dev/null 2>&1 &";
-    const std::string allports =
-        "/usr/bin/nmap -p- -T4 -oA allport > /dev/null 2>&1 &";
+        "/usr/bin/nmap -sCV -Pn -oA  top1000ports ";
+    const std::string allports = "/usr/bin/nmap -p- -T4 -oA allport ";
+    const std::string pipe_to_dev_null = "  /dev/null 2>&1 & ";
     std::vector<std::string> collect_addresses_output;
     std::vector<std::string> ip_addresses_output;
     std::vector<std::string> nmap_output;
     std::string line;
+    std::string userinput;
+    std::string targets_ip_address;
 }; // end of class
 } // namespace Monitor

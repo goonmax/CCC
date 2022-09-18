@@ -25,14 +25,16 @@ void NetworkEnumeration::CollectMacaddresses()
     }
 }
 //--------------------------------------------------------------------------------
-void NetworkEnumeration::PortScan()
+void NetworkEnumeration::PortScan(std::string ipaddress)
 {
     try
     {
-        boost::process::system(top1000ports, boost::process::std_out > out,
+        /*boost::process::system(top1000ports + ipaddress + pipe_to_dev_null,
+                               boost::process::std_out > out,
                                boost::process::std_err > err,
-                               boost::process::std_in < stdin);
-        boost::process::system(allports, boost::process::std_out > out,
+                               boost::process::std_in < stdin);*/
+        boost::process::system(allports + ipaddress + pipe_to_dev_null,
+                               boost::process::std_out > err,
                                boost::process::std_err > err,
                                boost::process::std_in < stdin);
 
@@ -64,17 +66,36 @@ void NetworkEnumeration::GetUserInput()
                                  << " " + index
                                  << "\n|----------------------------------"
                                     "-----------------------|\n";
-    std::cout << "Would you like to start on a scan on any of the "
-                 "addresses listed?"
-              << std::endl;
     for (std::string index : ip_addresses_output)
         BOOST_LOG_TRIVIAL(trace) << RED << index << RESET << std::endl;
     try
     {
+        BOOST_LOG_TRIVIAL(trace) << "Would you like to start a Nmap scan? (y "
+                                    "for yes/any other key for no)"
+                                 << std::endl;
+        std::cin >> userinput;
+        if (userinput == "y")
+        {
+            BOOST_LOG_TRIVIAL(trace)
+                << RED << "Enter targets address" << RESET << std::endl;
+            std::cin >> targets_ip_address;
+            BOOST_LOG_TRIVIAL(trace)
+                << RED
+                << "Starting Nmap scans on " + targets_ip_address +
+                       " in the background, logging to files in "
+                       "current directory"
+                << RESET << std::endl;
+            PortScan(targets_ip_address);
+        }
+        else
+        {
+            BOOST_LOG_TRIVIAL(trace)
+                << RED << "No scan selected" << RESET << std::endl;
+        }
     }
     catch (std::exception& e)
     {
+        std::cerr << e.what() << std::endl;
     }
 }
-//--------------------------------------------------------------------------------
 } // namespace Monitor
